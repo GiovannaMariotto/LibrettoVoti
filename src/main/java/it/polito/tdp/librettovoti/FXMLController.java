@@ -1,10 +1,12 @@
 package it.polito.tdp.librettovoti;
 
 import java.net.URL;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import java.time.format.DateTimeParseException;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -70,7 +72,13 @@ public class FXMLController {
     	}
     	
     	
-    	LocalDate data = pickerEsame.getValue();
+    	LocalDate data = null;
+    	try {
+    	data= pickerEsame.getValue();
+    	}catch(DateTimeException dtfe) {
+    		txtRisultato.setText("ERRORE: DateTimeException");
+    	}
+    	
     	if(data==null) {
     		txtRisultato.setText("ERRORE: la data è errata o mancante");
     		return;
