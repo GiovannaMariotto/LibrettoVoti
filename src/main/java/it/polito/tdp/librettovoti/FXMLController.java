@@ -72,12 +72,12 @@ public class FXMLController {
     	}
     	
     	
-    	LocalDate data = null;
-    	try {
-    	data= pickerEsame.getValue();
-    	}catch(DateTimeException dtfe) {
-    		txtRisultato.setText("ERRORE: DateTimeException");
-    	}
+    	LocalDate data = pickerEsame.getValue();
+//    	try {
+//	  	data= pickerEsame.getValue();
+//		}catch(DateTimeException dtfe) {
+//			txtRisultato.setText("ERRORE: DateTimeException");
+//		}
     	
     	if(data==null) {
     		txtRisultato.setText("ERRORE: la data è errata o mancante");
